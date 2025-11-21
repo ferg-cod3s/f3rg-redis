@@ -15,6 +15,7 @@ pub async fn run(listener: &Listener) -> std::io::Result<()> {
 }
 
 async fn process_method(handler: &mut Handler) -> Result<(), std::io::Error> {
+    let listener = 
     while !handler.shutdown.is_shutdown() {
         let result = tokio::select! {
             _ = handler.shutdown.listen_recv() => {
